@@ -1,14 +1,6 @@
 local config = require('config')
 local ESX = exports.es_extended:getSharedObject()
 
-exports('getPlayerPlaytime', function(source)
-    local xPlayer = ESX.GetPlayerFromId(source)
-    if not xPlayer then return 0 end
-    
-    local playtime = xPlayer.getPlayTime()
-    return math.floor(playtime / 3600)
-end)
-
 lib.callback.register('playtime:checkWeaponAccess', function(source)
     local xPlayer = ESX.GetPlayerFromId(source)
     if not xPlayer then return false end
